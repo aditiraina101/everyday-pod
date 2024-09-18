@@ -1,0 +1,135 @@
+// You are using GCC
+#include<bits/stdc++.h>
+using namespace std;
+void merging(int n1,int n2,int arr1[],int arr2[],int mergearr[])
+{
+    //coping the value of first array in third array
+    int k=0;
+    for(int i=0;i<n1;i++)
+    {
+        mergearr[k]=arr1[i];
+        k++;
+    }
+    for(int j=0;j<n2;j++)
+    {
+        mergearr[k]=arr2[j];
+        k++;
+    }
+    sort(mergearr,mergearr+n1+n2);
+}
+int removeduplicates(int arr[],int n)
+{
+    if(n==0 || n==1)
+    {
+        return n;
+    }
+    int j=0;
+    for(int i=0;i<n-1;i++)
+    {
+        if(arr[i]!=arr[i+1]){
+            arr[j]=arr[i];
+            j++;
+        }
+    }
+    arr[j++]=arr[n-1];
+    return j;
+}
+int main()
+{
+
+    int n1;
+    cin>>n1;
+    int arr1[n1];
+    for(int i=0;i<n1;i++)
+    {
+        cin>>arr1[i];
+    }
+    int n2;
+    cin>>n2;
+    int arr2[n2];
+    for(int i=0;i<n2;i++)
+    {
+        cin>>arr2[i];
+    }
+    int mergearr[n1+n2];
+    merging(n1,n2,arr1,arr2,mergearr);
+    int newsize=removeduplicates(mergearr,n1+n2);
+    for(int i=0;i<newsize;i++)
+    {
+        cout<<mergearr[i]<<" ";
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// You are using GCC
+#include<bits/stdc++.h>
+using namespace std;
+void merging(int n1,int n2,int arr1[],int arr2[],int mergearr[])
+{
+    //coping the value of first array in third array
+    int k=0;
+    for(int i=0;i<n1;i++)
+    {
+        mergearr[k]=arr1[i];
+        k++;
+    }
+    for(int j=0;j<n2;j++)
+    {
+        mergearr[k]=arr2[j];
+        k++;
+    }
+    sort(mergearr,mergearr+n1+n2);
+}
+int removeduplicates(int arr[],int n)
+{
+    if(n==0 || n==1)
+    {
+        return n;
+    }
+    int j=0;
+    for(int i=0;i<n-1;i++)
+    {
+        if(arr[i]!=arr[i+1]){
+            arr[j]=arr[i];
+            j++;
+        }
+    }
+    arr[j++]=arr[n-1];
+    return j;
+}
+int main()
+{
+
+    int n1;
+    cin>>n1;
+    int arr1[n1];
+    for(int i=0;i<n1;i++)
+    {
+        cin>>arr1[i];
+    }
+    int n2;
+    cin>>n2;
+    int arr2[n2];
+    for(int i=0;i<n2;i++)
+    {
+        cin>>arr2[i];
+    }
+    int mergearr[n1+n2];
+    merging(n1,n2,arr1,arr2,mergearr);
+    int newsize=removeduplicates(mergearr,n1+n2);
+    for(int i=0;i<newsize;i++)
+    {
+        cout<<mergearr[i]<<" ";
+    }
