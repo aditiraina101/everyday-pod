@@ -1,0 +1,50 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+
+// Function to remove the middle element from the stack
+void removeMiddle(stack<int>& st, int n, int current) {
+    // Base case: If we have reached the middle element
+    if (current == n / 2) {
+        st.pop();
+        return;
+    }
+
+    // Store the top element and pop it
+    int topElement = st.top();
+    st.pop();
+
+    // Recursive call to reach the middle element
+    removeMiddle(st, n, current + 1);
+
+    // Push the top element back after the middle element is removed
+    st.push(topElement);
+}
+
+// Function to remove the middle element of the stack
+void removeMiddleElement(stack<int>& st, int n) {
+    removeMiddle(st, n, 0);
+}
+
+int main() {
+    int v1;
+    cin >> v1;
+
+    stack<int> st;
+    for (int i = 0; i < v1; i++) {
+        int x;
+        cin >> x;
+        st.push(x);
+    }
+
+    removeMiddleElement(st, v1);
+
+    // Print the stack elements after removing the middle element
+    while (!st.empty()) {
+        cout << st.top() << " ";
+        st.pop();
+    }
+    cout << endl;
+
+    return 0;
+}
