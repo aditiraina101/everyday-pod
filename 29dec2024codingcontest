@@ -1,0 +1,38 @@
+
+#include <iostream>
+#include<queue>
+#include<vector>
+using namespace std;
+
+int main() 
+{
+  int n;
+  cin>>n;
+  queue<pair<int ,int>> q;
+  for(int i=0;i<n/2;i++)
+  {
+    int c,v;
+    cin>>c>>v;
+    q.push({c,v});
+  }
+  vector<int>vec;
+  while(!q.empty())
+  {
+    pair<int ,int>current=q.front();
+    q.pop();
+    int count=current.first;
+    int value=current.second;
+    for(int i=0;i<count;i++)
+    {
+      vec.push_back(value);
+    }
+  }
+  for(int i=0;i<vec.size();i++)
+  {
+    cout<<vec[i]<<" ";
+  }
+  cout<<endl;
+  
+  return 0;
+   
+}
